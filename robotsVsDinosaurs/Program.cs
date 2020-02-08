@@ -13,7 +13,6 @@ namespace robotsVsDinosaurs
         {
             Game myGame = new Game();
             myGame.RunGame();
-              
         }
     }
 }

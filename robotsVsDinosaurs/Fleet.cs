@@ -13,14 +13,24 @@ namespace robotsVsDinosaurs
         public Robot robocop = new Robot("Robo-Cop", 500, 400);
         public Robot ironman = new Robot("Iron-Man", 750, 500);
 
-        public List<Robot> fleet = new List<Robot>();
         
 
-
-        //Constructor
+    //Constructor
         public Fleet()
         {
-
         }
+        public void FleetManager()
+        {
+            List<Robot> robots = new List<Robot>() { terminator, robocop, ironman };
+        }
+
+        public int FleetAttack()
+        {
+            int fleetAttack = terminator.pwrLvl + robocop.pwrLvl + ironman.pwrLvl;
+            return fleetAttack;
+        }
+
     }
-}
+
+}       
+

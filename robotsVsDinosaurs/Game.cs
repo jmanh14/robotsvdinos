@@ -8,7 +8,7 @@ namespace robotsVsDinosaurs
 {
     class Game
     {
-
+        //Battlefield battlefield = new Battlefield();
         public void Intro()
         {
             Console.WriteLine("WELCOME TO ROBOT VS DINOSAURS");

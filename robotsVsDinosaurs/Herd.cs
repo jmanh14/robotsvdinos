@@ -12,11 +12,20 @@ namespace robotsVsDinosaurs
         public Dinosaur trex = new Dinosaur("T-Rex", 1000, 500, 750);
         public Dinosaur raptor = new Dinosaur("Raptor", 200, 1000, 300);
         public Dinosaur tricerotops = new Dinosaur("Tricerotops", 750, 750, 500);
-        
         //Constructor
-        public Herd(List<Dinosaur> dinosaurs)
+        public Herd()
         {
-            List<Dinosaur> dinos = dinosaurs;
+        }
+
+        public void HerdManager()
+        {
+            List<Dinosaur> dinos = new List<Dinosaur>() { trex, raptor, tricerotops };
+        }
+
+        public int HerdAttack()
+        {
+            int herdAttack = trex.attkPwr + raptor.attkPwr + tricerotops.attkPwr;
+            return herdAttack;
         }
     }
 }

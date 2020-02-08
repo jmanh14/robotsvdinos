@@ -8,6 +8,18 @@ namespace robotsVsDinosaurs
 {
     class Battlefield
     {
+        public Herd newHerd;
+        public Fleet newFleet;
         
+        public Battlefield()
+        {
+            newHerd = new Herd();
+            newFleet = new Fleet();
+
+        }
+        
+        
+            //newHerd.HerdManager();
+            //newFleet.FleetManager();
     }
 }
