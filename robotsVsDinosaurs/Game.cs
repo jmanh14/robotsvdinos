@@ -69,60 +69,332 @@ namespace robotsVsDinosaurs
             Console.ReadLine();
         }
 
-        public void Attack(string attacker, int enemy, string attkSelector)
+        public void Attack(string attackee, int attacker, int enemy, int attack)
         {
-
-            if (attacker == "trex" || attacker == "raptor" || attacker == "trike")
+            if (attackee == "Dinosaur") //Dinosaur
             {
-                switch (attkSelector)
+                if (attacker == 1) //T-rex
                 {
-                    case "1":
-                        if (enemy == 1)
+                    if (enemy == 1) //Terminator
+                    {
+                        if (attack == 1) //Ram
                         {
-                         
+                            bf.newHerd.trex.Ram(bf.newFleet.terminator);
                         }
-                        break;
-                    case "2":
-                        break;
-                    case "3":
-                        break;
-                    default:
-                        break;
+                        else if (attack == 2) //Stomp
+                        {
+                            bf.newHerd.trex.Stomp(bf.newFleet.terminator);
+                        }
+                        else  //Crunch
+                        {
+                            bf.newHerd.trex.Crunch(bf.newFleet.terminator);
+                        }
+
+                    }
+                    else if (enemy == 2) //Robo-Cop
+                    {
+                        if (attack == 1) //Ram
+                        {
+                            bf.newHerd.trex.Ram(bf.newFleet.robocop);
+                        }
+                        else if (attack == 2) //Stomp
+                        {
+                            bf.newHerd.trex.Stomp(bf.newFleet.robocop);
+                        }
+                        else //Crunch
+                        {
+                            bf.newHerd.trex.Crunch(bf.newFleet.robocop);
+                        }
+                    }
+                    else //Iron-Man
+                    {
+                        if (attack == 1) //Ram
+                        {
+                            bf.newHerd.trex.Ram(bf.newFleet.ironman);
+                        }
+                        else if (attack == 2) //Stomp
+                        {
+                            bf.newHerd.trex.Stomp(bf.newFleet.ironman);
+                        }
+                        else //Crunch
+                        {
+                            bf.newHerd.trex.Crunch(bf.newFleet.ironman);
+                        }
+                    }
+
 
                 }
-            }
-            else
-            {
-                switch (attkSelector)
+                else if (attacker == 2)
                 {
-                    case "1":
-                        break;
-                    case "2":
-                        break;
-                    default:
-                        break;
+                    if (enemy == 1)
+                    {
+                        if (attack == 1)
+                        {
+                            bf.newHerd.raptor.Ram(bf.newFleet.terminator);
+                        }
+                        else if (attack == 2)
+                        {
+                            bf.newHerd.raptor.Stomp(bf.newFleet.terminator);
+                        }
+                        else
+                        {
+                            bf.newHerd.raptor.Crunch(bf.newFleet.terminator);
+                        }
+
+                    }
+                    else if (enemy == 2)
+                    {
+                        if (attack == 1)
+                        {
+                            bf.newHerd.raptor.Ram(bf.newFleet.robocop);
+                        }
+                        else if (attack == 2)
+                        {
+                            bf.newHerd.raptor.Stomp(bf.newFleet.robocop);
+                        }
+                        else
+                        {
+                            bf.newHerd.raptor.Crunch(bf.newFleet.robocop);
+                        }
+                    }
+                    else
+                    {
+                        if (attack == 1)
+                        {
+                            bf.newHerd.raptor.Ram(bf.newFleet.ironman);
+                        }
+                        else if (attack == 2)
+                        {
+                            bf.newHerd.raptor.Stomp(bf.newFleet.ironman);
+                        }
+                        else
+                        {
+                            bf.newHerd.raptor.Crunch(bf.newFleet.ironman);
+                        }
+                    }
+                }
+                else
+                {
+                    if (enemy == 1)
+                    {
+                        if (attack == 1)
+                        {
+                            bf.newHerd.tricerotops.Ram(bf.newFleet.terminator);
+                        }
+                        else if (attack == 2)
+                        {
+                            bf.newHerd.tricerotops.Stomp(bf.newFleet.terminator);
+                        }
+                        else
+                        {
+                            bf.newHerd.tricerotops.Crunch(bf.newFleet.terminator);
+                        }
+
+                    }
+                    else if (enemy == 2)
+                    {
+                        if (attack == 1)
+                        {
+                            bf.newHerd.tricerotops.Ram(bf.newFleet.robocop);
+                        }
+                        else if (attack == 2)
+                        {
+                            bf.newHerd.tricerotops.Stomp(bf.newFleet.robocop);
+                        }
+                        else
+                        {
+                            bf.newHerd.tricerotops.Crunch(bf.newFleet.robocop);
+                        }
+                    }
+                    else
+                    {
+                        if (attack == 1)
+                        {
+                            bf.newHerd.tricerotops.Ram(bf.newFleet.ironman);
+                        }
+                        else if (attack == 2)
+                        {
+                            bf.newHerd.tricerotops.Stomp(bf.newFleet.ironman);
+                        }
+                        else
+                        {
+                            bf.newHerd.tricerotops.Crunch(bf.newFleet.ironman);
+                        }
+                    }
+                }
+                Battle(2);
+            }
+            else //Robots
+            {
+                if (attacker == 1) //Terminator
+                {
+                    if (enemy == 1) //T-rex
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.terminator.Swing(bf.newHerd.trex);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.terminator.Shoot(bf.newHerd.trex);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.terminator.Fire(bf.newHerd.trex);
+                        }
+
+                    }
+                    else if (enemy == 2) //Raptor
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.terminator.Swing(bf.newHerd.raptor);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.terminator.Shoot(bf.newHerd.raptor);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.terminator.Fire(bf.newHerd.raptor);
+                        }
+                    }
+                    else //Trike
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.terminator.Swing(bf.newHerd.tricerotops);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.terminator.Shoot(bf.newHerd.tricerotops);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.terminator.Fire(bf.newHerd.tricerotops);
+                        }
+                    }
+                }
+                else if (attacker == 2) //Robo-Cop
+                {
+                    if (enemy == 1) //T-rex
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.robocop.Swing(bf.newHerd.trex);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.robocop.Shoot(bf.newHerd.trex);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.robocop.Fire(bf.newHerd.trex);
+                        }
+
+                    }
+                    else if (enemy == 2) //Raptor
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.robocop.Swing(bf.newHerd.raptor);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.robocop.Shoot(bf.newHerd.raptor);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.robocop.Fire(bf.newHerd.raptor);
+                        }
+                    }
+                    else //Trike
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.robocop.Swing(bf.newHerd.tricerotops);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.robocop.Shoot(bf.newHerd.tricerotops);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.robocop.Fire(bf.newHerd.tricerotops);
+                        }
+                    }
+                }
+                else //Iron-Man
+                {
+                    if (enemy == 1) //T-rex
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.ironman.Swing(bf.newHerd.trex);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.ironman.Shoot(bf.newHerd.trex);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.ironman.Fire(bf.newHerd.trex);
+                        }
+
+                    }
+                    else if (enemy == 2) //Raptor
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.ironman.Swing(bf.newHerd.raptor);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.ironman.Shoot(bf.newHerd.raptor);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.ironman.Fire(bf.newHerd.raptor);
+                        }
+                    }
+                    else //Trike
+                    {
+                        if (attack == 1) //Swing
+                        {
+                            bf.newFleet.ironman.Swing(bf.newHerd.tricerotops);
+                        }
+                        else if (attack == 2) //Shoot
+                        {
+                            bf.newFleet.ironman.Shoot(bf.newHerd.tricerotops);
+                        }
+                        else //Fire
+                        {
+                            bf.newFleet.ironman.Fire(bf.newHerd.tricerotops);
+                        }
+                    }
 
                 }
+
             }
+            Battle(1);
         }
-        public string AttackMenu(int selector)
+        public int AttackMenu(string attacker)
         {
-            string attkSelection; 
-            if (selector == 1)
+            int attkSelection; 
+            if (attacker == "Dinosaur")
             {
                 Console.WriteLine("[1]Ram");
                 Console.WriteLine("[2]Stomp");
                 Console.WriteLine("[3]Crunch");
                 Console.Write(">> ");
-                attkSelection = Console.ReadLine();
             }
             else 
             {
                 Console.WriteLine("[1]Swing");
                 Console.WriteLine("[2]Shoot");
                 Console.Write(">> ");
-                attkSelection = Console.ReadLine();
             }
+            attkSelection = int.Parse(Console.ReadLine());
             return attkSelection;
         }
 
@@ -146,11 +418,13 @@ namespace robotsVsDinosaurs
             int selection = int.Parse(Console.ReadLine());
             return selection;
         }
-        public void Battle(int selector)
+        public void Battle(int battleSelector)
         {
             int attacker;
             string attackee;
-            if (selector == 1)
+            int enemy;
+            int attack;
+            if (battleSelector == 1)
             {
                 attacker = AttackerSelector("Dinosaur");
                 attackee = "Dinosaur";
@@ -161,8 +435,9 @@ namespace robotsVsDinosaurs
                 attackee = "Robot";
 
             }
-            AttackMenu(attacker);
-            int enemy = EnemySelector(attackee);
+            attack = AttackMenu(attackee);
+            enemy = EnemySelector(attackee);
+            Attack(attackee, attacker, enemy, attack);
         }
     }
 }

@@ -24,19 +24,47 @@ namespace robotsVsDinosaurs
             this.pwrLvl = pwrLvl;
         }
 
-        public void Attack(Dinosaur dinosaur)
+        //public void Attack(Dinosaur dinosaur)
+        //{
+        //    dinosaur.health -= sword.attkPwr;
+        //}
+        public void Swing(Dinosaur dinosaur)
         {
-            dinosaur.health -= sword.attkPwr;
+            if (dinosaur.health > 0)
+            {
+                dinosaur.health -= sword.attkPwr * 2;
+                Console.WriteLine($"{dinosaur.type} lost {sword.attkPwr} health");
+            }
+            else
+            {
+                Console.WriteLine("They are already dead!");
+            }
         }
-        public void Swing()
+        public void Shoot(Dinosaur dinosaur)
         {
-            
+            if (dinosaur.health > 0)
+            {
+                dinosaur.health -= laser.attkPwr * 2;
+                Console.WriteLine($"{dinosaur.type} lost {laser.attkPwr} health");
+            }
+            else
+            {
+                Console.WriteLine("They are already dead!");
+            }
         }
-        public void Shoot()
+        public void Fire(Dinosaur dinosaur)
         {
-
+            if (dinosaur.health > 0)
+            {
+                dinosaur.health -= cannon.attkPwr * 2;
+                Console.WriteLine($"{dinosaur.type} lost {cannon.attkPwr} health");
+            }
+            else
+            {
+                Console.WriteLine("They are already dead!");
+            }
         }
-        public void ChangeWeapon()
+        public void ChangeWeapon(List<Weapon> weapons)
         {
 
         }

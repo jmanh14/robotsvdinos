@@ -23,23 +23,51 @@ namespace robotsVsDinosaurs
             this.attkPwr = attkPwr;
 
         }
-        public void Attack(Robot robot)
-        {
-            robot.health -= attkPwr;
-        }
+        //public void Attack(Robot robot)
+        //{
+        //    robot.health -= attkPwr;
+        //}
 
         //Member methods
-        public void Ram()
+        public void Ram(Robot robot)
         {
+            if(robot.health > 0)
+            {
+                robot.health -= attkPwr;
+                Console.WriteLine($"{robot.name} lost {attkPwr} health");
+                Console.WriteLine($"{robot.name} remaining health: {robot.health}");
+            }
+            else
+            {
+                Console.WriteLine("They are already dead!");
+            }
+        }
+        public void Stomp(Robot robot)
+        {
+            if (robot.health > 0)
+            {
+                robot.health -= attkPwr * 2;
+                Console.WriteLine($"{robot.name} lost {attkPwr} health");
+                Console.WriteLine($"{robot.name} remaining health: {robot.health}");
+            }
+            else
+            {
+                Console.WriteLine("They are already dead!");
+            }
             
         }
-        public void Stomp()
+        public void Crunch(Robot robot)
         {
-
-        }
-        public void Crunch()
-        {
-
+            if (robot.health > 0)
+            {
+                robot.health -= attkPwr * 3;
+                Console.WriteLine($"{robot.name} lost {attkPwr} health");
+                Console.WriteLine($"{robot.name} remaining health: {robot.health}");
+            }
+            else
+            {
+                Console.WriteLine("They are already dead!");
+            }
         }
 
        
