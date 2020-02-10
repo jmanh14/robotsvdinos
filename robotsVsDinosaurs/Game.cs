@@ -8,7 +8,7 @@ namespace robotsVsDinosaurs
 {
     class Game
     {
-        //Battlefield battlefield = new Battlefield();
+        Battlefield bf = new Battlefield();
         public void Intro()
         {
             Console.WriteLine("WELCOME TO ROBOT VS DINOSAURS");
@@ -34,6 +34,7 @@ namespace robotsVsDinosaurs
         public void Help()
         {
             Console.WriteLine("Press corresponding keys to have dinos and robots fight!");
+            Console.WriteLine("Press enter to continue...");
             Console.ReadLine();
             Intro();
         }
@@ -68,20 +69,22 @@ namespace robotsVsDinosaurs
             Console.ReadLine();
         }
 
-        public void Attack(string attacker, string attkSelector)
+        public void Attack(string attacker, int enemy, string attkSelector)
         {
+
             if (attacker == "trex" || attacker == "raptor" || attacker == "trike")
             {
                 switch (attkSelector)
                 {
                     case "1":
-                        
+                        if (enemy == 1)
+                        {
+                         
+                        }
                         break;
                     case "2":
                         break;
                     case "3":
-                        break;
-                    case "4":
                         break;
                     default:
                         break;
@@ -96,95 +99,70 @@ namespace robotsVsDinosaurs
                         break;
                     case "2":
                         break;
-                    case "3":
-                        break;
                     default:
                         break;
 
                 }
             }
         }
-        public void AttackMenu(int selector)
+        public string AttackMenu(int selector)
         {
+            string attkSelection; 
             if (selector == 1)
             {
                 Console.WriteLine("[1]Ram");
                 Console.WriteLine("[2]Stomp");
                 Console.WriteLine("[3]Crunch");
-                Console.WriteLine("[4]Dodge");
                 Console.Write(">> ");
-                string attkSelection = Console.ReadLine();
+                attkSelection = Console.ReadLine();
             }
             else 
             {
                 Console.WriteLine("[1]Swing");
                 Console.WriteLine("[2]Shoot");
-                Console.WriteLine("[3]Dodge");
                 Console.Write(">> ");
-                string attkSelection = Console.ReadLine();
+                attkSelection = Console.ReadLine();
             }
+            return attkSelection;
+        }
+
+        public int EnemySelector(string attacker)
+        {
+            if (attacker == "Dinosaur")
+            {
+                Console.WriteLine("Choose who to attack. [1]Terminator [2]Robo-Cop [3]Iron-Man");
+            }
+            else if (attacker == "Robot")
+            {
+                Console.WriteLine("Choose who to attack. [1]T-Rex [2]Raptor [3]Tricerotops");
+            }
+            int selection = int.Parse(Console.ReadLine());
+            return selection;
+        }
+        
+        public int AttackerSelector(string attacker)
+        {
+            Console.WriteLine($"Which {attacker} goes first");
+            int selection = int.Parse(Console.ReadLine());
+            return selection;
         }
         public void Battle(int selector)
         {
-            string attacker = "";
-            string attkSelection = "";
+            int attacker;
+            string attackee;
             if (selector == 1)
             {
-                Console.WriteLine("Which Dinosaur goes first?");
-                string dinoSelection = Console.ReadLine();
-                if (dinoSelection == "1")
-                {
-                    Console.WriteLine("T-Rex Steps Up");
-                    attacker = "trex";
-                }
-                else if (dinoSelection == "2")
-                {
-                    Console.WriteLine("Raptor Runs In");
-                    attacker = "raptor";
-                }
-                else if (dinoSelection == "3")
-                {
-                    Console.WriteLine("Trike Trotts Over");
-                    attacker = "trike";
-                }
-                else
-                {
-                    Console.WriteLine("THIS IS ALL WE'VE GOT!");
-                    Battle(1);
-                    
-                }
-                AttackMenu(1);
-                Attack(attacker, attkSelection);
+                attacker = AttackerSelector("Dinosaur");
+                attackee = "Dinosaur";
             }
             else
             {
-                Console.WriteLine("Which Robot goes first?");
-                string roboSelection = Console.ReadLine();
-                if (roboSelection == "1")
-                {
-                    Console.WriteLine("T-800 Appears");
-                    attacker = "terminator";
-                }
-                else if (roboSelection == "2")
-                {
-                    Console.WriteLine("Robo-Cop Arrives");
-                    attacker = "robocop";
+                attacker = AttackerSelector("Robot");
+                attackee = "Robot";
 
-                }
-                else if (roboSelection == "3")
-                {
-                    Console.WriteLine("Iron-Man Flies In");
-                    attacker = "ironman";
-
-                }
-                else 
-                {
-                    Console.WriteLine("THIS IS ALL WE'VE GOT!");
-                    Battle(2);
-                }
-                AttackMenu(2);
-                Attack(attacker, attkSelection);
             }
+            AttackMenu(attacker);
+            int enemy = EnemySelector(attackee);
         }
     }
 }

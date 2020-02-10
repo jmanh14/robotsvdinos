@@ -6,26 +6,23 @@ using System.Threading.Tasks;
 
 namespace robotsVsDinosaurs
 {
-    class Herd
+    public class Herd
     {
         //Member variables
         public Dinosaur trex = new Dinosaur("T-Rex", 1000, 500, 750);
         public Dinosaur raptor = new Dinosaur("Raptor", 200, 1000, 300);
         public Dinosaur tricerotops = new Dinosaur("Tricerotops", 750, 750, 500);
+        public List<Dinosaur> dinos;
         //Constructor
         public Herd()
         {
+           dinos = new List<Dinosaur>() {trex, raptor, tricerotops};
         }
 
-        public void HerdManager()
-        {
-            List<Dinosaur> dinos = new List<Dinosaur>() { trex, raptor, tricerotops };
-        }
-
-        public int HerdAttack()
-        {
-            int herdAttack = trex.attkPwr + raptor.attkPwr + tricerotops.attkPwr;
-            return herdAttack;
-        }
+        ////public int HerdAttack()
+        //{
+        //    int herdAttack = trex.attkPwr + raptor.attkPwr + tricerotops.attkPwr;
+        //    return herdAttack;
+        //}
     }
 }

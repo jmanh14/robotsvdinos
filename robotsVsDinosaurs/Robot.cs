@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace robotsVsDinosaurs
 {
-    class Robot
+    public class Robot
     {
         //Member variables
         public string name;
@@ -24,6 +24,10 @@ namespace robotsVsDinosaurs
             this.pwrLvl = pwrLvl;
         }
 
+        public void Attack(Dinosaur dinosaur)
+        {
+            dinosaur.health -= sword.attkPwr;
+        }
         public void Swing()
         {
             
@@ -31,10 +35,6 @@ namespace robotsVsDinosaurs
         public void Shoot()
         {
 
-        }
-        public void Dodge()
-        {
-            
         }
         public void ChangeWeapon()
         {

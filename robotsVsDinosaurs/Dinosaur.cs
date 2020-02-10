@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace robotsVsDinosaurs
 {
-    class Dinosaur
+    public class Dinosaur
     {
         //Member variables
         public string type;
@@ -23,6 +23,10 @@ namespace robotsVsDinosaurs
             this.attkPwr = attkPwr;
 
         }
+        public void Attack(Robot robot)
+        {
+            robot.health -= attkPwr;
+        }
 
         //Member methods
         public void Ram()
@@ -37,10 +41,7 @@ namespace robotsVsDinosaurs
         {
 
         }
-        public void Dodge()
-        {
-         
-        }
+
        
     }
 }
