@@ -9,10 +9,11 @@ namespace robotsVsDinosaurs
     public class Fleet
     {
         //Member variables
-        public Robot terminator = new Robot("T-800", 1000, 700);
-        public Robot robocop = new Robot("Robo-Cop", 500, 400);
-        public Robot ironman = new Robot("Iron-Man", 750, 500);
+        public Robot terminator = new Robot("T-800", 1000, 700, true);
+        public Robot robocop = new Robot("Robo-Cop", 500, 400, true);
+        public Robot ironman = new Robot("Iron-Man", 750, 500, true);
         public List<Robot> robots;
+
         
 
     //Constructor
