@@ -9,22 +9,21 @@ namespace robotsVsDinosaurs
     public class Herd
     {
         //Member variables
-        public Dinosaur trex = new Dinosaur("T-Rex", 1000, 500, 750, true);
-        public Dinosaur raptor = new Dinosaur("Raptor", 200, 1000, 300, true);
-        public Dinosaur tricerotops = new Dinosaur("Tricerotops", 750, 750, 500, true);
+        public Dinosaur trex;
+        public Dinosaur raptor;
+        public Dinosaur tricerotops;
         public List<Dinosaur> dinos;
 
         //Constructor
         public Herd()
         {
-            dinos = new List<Dinosaur>() {trex, raptor, tricerotops};
-
+            trex = new Dinosaur("T-Rex", 1000, 500, 750);
+            raptor = new Dinosaur("Raptor", 200, 1000, 300);
+            tricerotops = new Dinosaur("Tricerotops", 750, 750, 500);
+            dinos = new List<Dinosaur>();
+            dinos.Add(trex);
+            dinos.Add(raptor);
+            dinos.Add(tricerotops);
         }
-
-        ////public int HerdAttack()
-        //{
-        //    int herdAttack = trex.attkPwr + raptor.attkPwr + tricerotops.attkPwr;
-        //    return herdAttack;
-        //}
     }
 }

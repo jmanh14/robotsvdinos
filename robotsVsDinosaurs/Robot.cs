@@ -12,37 +12,42 @@ namespace robotsVsDinosaurs
         public string name;
         public int health;
         public int pwrLvl;
-        public bool aliveStatus = true;
         public Weapon sword = new Weapon("Sword", 50);
         public Weapon laser = new Weapon("Laser", 100);
         public Weapon cannon = new Weapon("Cannon", 250);
 
         //Constructor
-        public Robot(string name, int health, int pwrLvl, bool status)
+        public Robot(string name, int health, int pwrLvl)
         {
             this.name = name;
             this.health = health;
             this.pwrLvl = pwrLvl;
-            aliveStatus = status;
-        }
 
-        //public void Attack(Dinosaur dinosaur)
-        //{
-        //    dinosaur.health -= sword.attkPwr;
-        //}
+        }
+        public void DisplayHealth(Dinosaur dinosaur, Weapon weapon)
+        {
+            Console.WriteLine($"{dinosaur.type} lost {weapon.attkPwr} health");
+            if (dinosaur.health > 0)
+            {
+                Console.WriteLine($"{dinosaur.type} remaining health: {dinosaur.health}");
+            }
+            else
+            {
+                Console.WriteLine($"{dinosaur.type} has died!");
+            }
+        }
         public void Swing(Dinosaur dinosaur)
         {
             if (dinosaur.health > 0)
             {
                 dinosaur.health -= sword.attkPwr;
-                Console.WriteLine($"{dinosaur.type} lost {sword.attkPwr} health");
-                Console.WriteLine($"{dinosaur.type} remaining health: {dinosaur.health}");
+                DisplayHealth(dinosaur, sword);
 
             }
             else if (dinosaur.health <= 0)
             {
                 Console.WriteLine("They are already dead!");
-                dinosaur.aliveStatus = false;
+
             }
         }
         public void Shoot(Dinosaur dinosaur)
@@ -50,13 +55,12 @@ namespace robotsVsDinosaurs
             if (dinosaur.health > 0)
             {
                 dinosaur.health -= laser.attkPwr;
-                Console.WriteLine($"{dinosaur.type} lost {laser.attkPwr} health");
-                Console.WriteLine($"{dinosaur.type} remaining health: {dinosaur.health}");
+                DisplayHealth(dinosaur,laser);
             }
             else if (dinosaur.health <= 0) 
             {
                 Console.WriteLine("They are already dead!");
-                dinosaur.aliveStatus = false;
+
             }
         }
         public void Fire(Dinosaur dinosaur)
@@ -64,13 +68,11 @@ namespace robotsVsDinosaurs
             if (dinosaur.health > 0)
             {
                 dinosaur.health -= cannon.attkPwr;
-                Console.WriteLine($"{dinosaur.type} lost {cannon.attkPwr} health");
-                Console.WriteLine($"{dinosaur.type} remaining health: {dinosaur.health}");
+                DisplayHealth(dinosaur,cannon);
             }
             else if (dinosaur.health <= 0) 
             {
                 Console.WriteLine("They are already dead!");
-                dinosaur.aliveStatus = false;
             }
         }
         public void ChangeWeapon(List<Weapon> weapons)

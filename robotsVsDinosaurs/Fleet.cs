@@ -9,9 +9,9 @@ namespace robotsVsDinosaurs
     public class Fleet
     {
         //Member variables
-        public Robot terminator = new Robot("T-800", 1000, 700, true);
-        public Robot robocop = new Robot("Robo-Cop", 500, 400, true);
-        public Robot ironman = new Robot("Iron-Man", 750, 500, true);
+        public Robot terminator;
+        public Robot robocop;
+        public Robot ironman;
         public List<Robot> robots;
 
         
@@ -19,14 +19,14 @@ namespace robotsVsDinosaurs
     //Constructor
         public Fleet()
         {
-            robots = new List<Robot>() {terminator, robocop, ironman };
+            terminator = new Robot("Terminator", 800, 800);
+            robocop = new Robot("Robo-Cop", 500, 400);
+            ironman = new Robot("Iron-Man", 750, 500);
+            robots = new List<Robot>();
+            robots.Add(terminator);
+            robots.Add(robocop);
+            robots.Add(ironman);
         }
-
-        //public int FleetAttack()
-        //{
-        //    int fleetAttack = terminator.pwrLvl + robocop.pwrLvl + ironman.pwrLvl;
-        //    return fleetAttack;
-        //}
 
     }
 

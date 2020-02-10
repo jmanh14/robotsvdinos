@@ -13,15 +13,14 @@ namespace robotsVsDinosaurs
         public int health;
         public int energy;
         public int attkPwr;
-        public bool aliveStatus = true;
+
         //Constructor
-        public Dinosaur(string type, int health, int energy, int attkPwr, bool status)
+        public Dinosaur(string type, int health, int energy, int attkPwr)
         {
             this.type = type;
             this.health = health;
             this.energy = energy;
             this.attkPwr = attkPwr;
-            aliveStatus = status;
         }
         //public void Attack(Robot robot)
         //{
@@ -32,13 +31,14 @@ namespace robotsVsDinosaurs
         public void DisplayHealth(Robot robot)
         {
             Console.WriteLine($"{robot.name} lost {attkPwr} health");
-            if (robot.health <= 0)
+            if (robot.health > 0)
             {
-                Console.WriteLine($"{robot.name} has died!");
+                Console.WriteLine($"{robot.name} remaining health: {robot.health}");
+                
             }
             else
             {
-                Console.WriteLine($"{robot.name} remaining health: {robot.health}");
+                Console.WriteLine($"{robot.name} has died!");
             }
         }
 
@@ -46,39 +46,37 @@ namespace robotsVsDinosaurs
         {
             if (robot.health > 0)
             {
-                robot.health -= attkPwr * 2;
+                robot.health -= attkPwr;
                 DisplayHealth(robot);
             }
             else if (robot.health <= 0)
             {
                 Console.WriteLine("They are already dead!");
-                robot.aliveStatus = false;
+                
             }
         }
         public void Stomp(Robot robot)
         {
             if (robot.health > 0)
             {
-                robot.health -= attkPwr * 2;
+                robot.health -= attkPwr;
                 DisplayHealth(robot);
             }
             else if (robot.health <= 0)
             {
                 Console.WriteLine("They are already dead!");
-                robot.aliveStatus = false;
             }
         }
         public void Crunch(Robot robot)
         {
             if(robot.health > 0)
             {
-                robot.health -= attkPwr * 2;
+                robot.health -= attkPwr;
                 DisplayHealth(robot);
             }
             else if (robot.health <= 0)
             {
                 Console.WriteLine("They are already dead!");
-                robot.aliveStatus = false;
             }
 
         }
