@@ -34,8 +34,7 @@ namespace robotsVsDinosaurs
             Console.WriteLine($"{robot.name} lost {attkPwr} health");
             if (robot.health > 0)
             {
-                Console.WriteLine($"{robot.name} remaining health: {robot.health}");
-                
+                Console.WriteLine($"{robot.name} remaining health: {robot.health}");               
             }
             else if (robot.health <= 0)
             {

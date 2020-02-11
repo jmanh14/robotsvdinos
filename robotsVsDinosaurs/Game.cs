@@ -8,6 +8,7 @@ namespace robotsVsDinosaurs
 {
     class Game
     {
+        public Random rnd = new Random();
         public Battlefield bf = new Battlefield();
         public void Intro()
         {
@@ -65,7 +66,7 @@ namespace robotsVsDinosaurs
         }
         public void StartGame()
         {
-            Random rnd = new Random();
+            
             int rndSelection = rnd.Next(0, 2);
             Display();
             Console.WriteLine("Randomly choosing who goes first...");
@@ -106,6 +107,9 @@ namespace robotsVsDinosaurs
                             bf.newHerd.dinos[attacker - 1].Crunch(bf.newFleet.robots[enemy - 1]);
                         }
                         break;
+                    default:
+                        Console.WriteLine("Invalid selection");
+                        break;
                 }
                 if (bf.newFleet.robots[enemy - 1].isAlive == false)
                 {
@@ -137,6 +141,9 @@ namespace robotsVsDinosaurs
                         {
                             bf.newFleet.robots[attacker - 1].Fire(bf.newHerd.dinos[enemy - 1]);
                         }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid selection");
                         break;
                 }
                 if (bf.newHerd.dinos[enemy - 1].isAlive == false)
@@ -198,7 +205,7 @@ namespace robotsVsDinosaurs
             Console.WriteLine("===================================================================");
             
             Console.WriteLine($"Which {attacker} goes first");
-            Console.Write(">>");
+            Console.Write(">> ");
             int selection = int.Parse(Console.ReadLine());
             return selection;
         }
