@@ -13,14 +13,15 @@ namespace robotsVsDinosaurs
         public int health;
         public int energy;
         public int attkPwr;
-
+        public bool isAlive;
         //Constructor
-        public Dinosaur(string type, int health, int energy, int attkPwr)
+        public Dinosaur(string type, int health, int energy, int attkPwr, bool isAlive)
         {
             this.type = type;
             this.health = health;
             this.energy = energy;
             this.attkPwr = attkPwr;
+            this.isAlive = isAlive;
         }
         //public void Attack(Robot robot)
         //{
@@ -36,9 +37,10 @@ namespace robotsVsDinosaurs
                 Console.WriteLine($"{robot.name} remaining health: {robot.health}");
                 
             }
-            else
+            else if (robot.health <= 0)
             {
                 Console.WriteLine($"{robot.name} has died!");
+                robot.isAlive = false;
             }
         }
 
@@ -51,6 +53,7 @@ namespace robotsVsDinosaurs
             }
             else if (robot.health <= 0)
             {
+                robot.isAlive = false;
                 Console.WriteLine("They are already dead!");
                 
             }
@@ -64,6 +67,7 @@ namespace robotsVsDinosaurs
             }
             else if (robot.health <= 0)
             {
+                robot.isAlive = false;
                 Console.WriteLine("They are already dead!");
             }
         }
@@ -76,7 +80,9 @@ namespace robotsVsDinosaurs
             }
             else if (robot.health <= 0)
             {
+                robot.isAlive = false;
                 Console.WriteLine("They are already dead!");
+               
             }
 
         }

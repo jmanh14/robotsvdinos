@@ -17,9 +17,9 @@ namespace robotsVsDinosaurs
         //Constructor
         public Herd()
         {
-            trex = new Dinosaur("T-Rex", 1000, 500, 750);
-            raptor = new Dinosaur("Raptor", 200, 1000, 300);
-            tricerotops = new Dinosaur("Tricerotops", 750, 750, 500);
+            trex = new Dinosaur("T-Rex", 1000, 500, 750, true);
+            raptor = new Dinosaur("Raptor", 200, 1000, 300, true);
+            tricerotops = new Dinosaur("Tricerotops", 750, 750, 500, true);
             dinos = new List<Dinosaur>();
             dinos.Add(trex);
             dinos.Add(raptor);

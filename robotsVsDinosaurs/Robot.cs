@@ -12,17 +12,18 @@ namespace robotsVsDinosaurs
         public string name;
         public int health;
         public int pwrLvl;
+        public bool isAlive;
         public Weapon sword = new Weapon("Sword", 50);
         public Weapon laser = new Weapon("Laser", 100);
         public Weapon cannon = new Weapon("Cannon", 250);
 
         //Constructor
-        public Robot(string name, int health, int pwrLvl)
+        public Robot(string name, int health, int pwrLvl, bool isAlive)
         {
             this.name = name;
             this.health = health;
             this.pwrLvl = pwrLvl;
-
+            this.isAlive = isAlive;
         }
         public void DisplayHealth(Dinosaur dinosaur, Weapon weapon)
         {
@@ -31,9 +32,11 @@ namespace robotsVsDinosaurs
             {
                 Console.WriteLine($"{dinosaur.type} remaining health: {dinosaur.health}");
             }
-            else
+            else if (dinosaur.health <= 0)
             {
                 Console.WriteLine($"{dinosaur.type} has died!");
+                
+                dinosaur.isAlive = false;
             }
         }
         public void Swing(Dinosaur dinosaur)
@@ -46,6 +49,7 @@ namespace robotsVsDinosaurs
             }
             else if (dinosaur.health <= 0)
             {
+                dinosaur.isAlive = false;
                 Console.WriteLine("They are already dead!");
 
             }
@@ -59,6 +63,7 @@ namespace robotsVsDinosaurs
             }
             else if (dinosaur.health <= 0) 
             {
+                dinosaur.isAlive = false;
                 Console.WriteLine("They are already dead!");
 
             }
@@ -72,6 +77,7 @@ namespace robotsVsDinosaurs
             }
             else if (dinosaur.health <= 0) 
             {
+                dinosaur.isAlive = false;
                 Console.WriteLine("They are already dead!");
             }
         }

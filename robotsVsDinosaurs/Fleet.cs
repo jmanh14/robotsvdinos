@@ -19,9 +19,9 @@ namespace robotsVsDinosaurs
     //Constructor
         public Fleet()
         {
-            terminator = new Robot("Terminator", 800, 800);
-            robocop = new Robot("Robo-Cop", 500, 400);
-            ironman = new Robot("Iron-Man", 750, 500);
+            terminator = new Robot("Terminator", 800, 800, true);
+            robocop = new Robot("Robo-Cop", 500, 400, true);
+            ironman = new Robot("Iron-Man", 750, 500, true);
             robots = new List<Robot>();
             robots.Add(terminator);
             robots.Add(robocop);
